@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin:"https://studynotion-the-mern-application.onrender.com",
+        origin:"*",
         Credential:true,
     })
 )
