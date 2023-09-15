@@ -8,7 +8,7 @@ import { useSelector } from "react-redux"
 import { ACCOUNT_TYPE } from "../../utils/constants"
 import ProfileDropdown from "../core/Auth/ProfileDropDown"
 
-function Sidebar({loading,subLinks,openNavbar}) {
+function Sidebar({loading,subLinks,openNavbar,setOpenNavbar,handleNavbarOpen}) {
     const location = useLocation()
     const matchRoute = (route) => {
         return matchPath({ path: route }, location.pathname)
@@ -18,8 +18,7 @@ function Sidebar({loading,subLinks,openNavbar}) {
       const { totalItems } = useSelector((state) => state.cart)
 
   return (
-    <div className={`text-white absolute z-50  top-14  w-screen m-auto
-      ${openNavbar? "h-screen  opacity-100 transition-opacity md:hidden "
+    <div className={`text-white absolute z-50  top-14  w-screen m-auto ${openNavbar? "h-screen  opacity-100 transition-opacity md:hidden "
       :"h-0 opacity-0"} ${location.pathname !== "/" ? "bg-richblack-800" : "bg-richblack-900"} transition-all duration-200`}>
 
          <div className='flex justify-center flex-col gap-y-20 items-center mt-4'>
@@ -50,6 +49,7 @@ function Sidebar({loading,subLinks,openNavbar}) {
                               )
                               ?.map((subLink, i) => (
                                 <Link
+                                onClick={()=>{handleNavbarOpen()}}
                                   to={`/catalog/${subLink.name
                                     .split(" ")
                                     .join("-")
@@ -57,7 +57,7 @@ function Sidebar({loading,subLinks,openNavbar}) {
                                   className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50"
                                   key={i}
                                 >
-                                  <p>{subLink.name}</p>
+                                  <p  onClick={()=>{handleNavbarOpen()}}>{subLink.name}</p>
                                 </Link>
                               ))}
                           </>
@@ -70,6 +70,7 @@ function Sidebar({loading,subLinks,openNavbar}) {
                 ) : (
                   <Link to={link?.path}>
                     <p
+                     onClick={()=>{handleNavbarOpen()}}
                       className={`${
                         matchRoute(link?.path)
                           ? "text-yellow-25 text-[18px]"
@@ -86,7 +87,7 @@ function Sidebar({loading,subLinks,openNavbar}) {
         </nav>
         <div className="flex  items-center gap-x-10 ">
           {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
-            <Link to="/dashboard/cart" className="relative">
+            <Link to="/dashboard/cart" className="relative"  onClick={()=>{handleNavbarOpen()}}>
               <AiOutlineShoppingCart className="text-2xl text-richblack-100" />
               {totalItems > 0 && (
                 <span className="absolute -bottom-2 -right-2 grid h-5 w-5 place-items-center overflow-hidden rounded-full bg-richblack-600 text-center text-xs font-bold text-yellow-100">
@@ -96,20 +97,20 @@ function Sidebar({loading,subLinks,openNavbar}) {
             </Link>
           )}
           {token === null && (
-            <Link to="/login">
+            <Link to="/login" onClick={()=>{setOpenNavbar(false)}}>
               <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
                 Log in
               </button>
             </Link>
           )}
           {token === null && (
-            <Link to="/signup">
+            <Link to="/signup" onClick={()=>{setOpenNavbar(false)}}>
               <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
                 Sign up
               </button>
             </Link>
           )}
-          {token !== null && <ProfileDropdown />}
+          {token !== null && <ProfileDropdown  />}
         </div>
          </div>
     </div>

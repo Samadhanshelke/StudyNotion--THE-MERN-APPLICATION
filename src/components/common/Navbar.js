@@ -155,7 +155,7 @@ function Navbar() {
         </button>
       </div>
     </div>
-    {openNavbar && <Sidebar loading={loading} subLinks={subLinks} openNavbar={openNavbar}/>}
+    {openNavbar && <Sidebar handleNavbarOpen={handleNavbarOpen} loading={loading} subLinks={subLinks} openNavbar={openNavbar} setOpenNavbar={setOpenNavbar}/>}
     </>
   )
 }
