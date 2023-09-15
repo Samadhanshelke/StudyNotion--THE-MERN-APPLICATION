@@ -5,7 +5,7 @@ const mongoose = require("mongoose")
 const {uploadImageToCloudinary} = require("../utils/imageUploader")
 const {convertSecondsToDuration}  = require("../utils/secToDuration")
 const CourseProgress = require("../models/CourseProgress");
-const { VscDebugBreakpointUnsupported } = require("react-icons/vsc");
+
 exports.updateProfile = async(req,res)=>{
   try {
     const {
