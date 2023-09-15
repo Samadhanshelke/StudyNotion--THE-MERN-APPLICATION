@@ -24,9 +24,9 @@ const OTPSchema = new mongoose.Schema({
 async function sendVerificationEmail(email,otp){
     try {
         const mailResponse = await mailSender(email,"Verification Email from StudyNotion",emailTemplate(otp))
-        console.log("email sent successfully",mailResponse);
+        
     } catch (error) {
-        console.log('error occurs while sending mails');
+        
         throw error;
     }
 }

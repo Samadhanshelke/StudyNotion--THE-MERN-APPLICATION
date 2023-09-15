@@ -10,7 +10,7 @@ export default function MyProfile() {
   const { user } = useSelector((state) => state.profile)
   const navigate = useNavigate()
  useEffect(()=>{
-      console.log("user when i refresh each time",user);
+      
  },[])
   return (
     <>

@@ -29,7 +29,7 @@ exports.sendOTP = async (req, res) => {
       lowerCaseAlphabets: false,
       specialChars: false,
     });
-    console.log("OTP generated is: ", otp);
+
     //check unique otp or not
     let result = await OTP.findOne({ otp: otp });
     while (result) {
@@ -44,7 +44,7 @@ exports.sendOTP = async (req, res) => {
     const otpPayload = { email, otp };
     //create an entry for OTP
     const otpBody = await OTP.create(otpPayload);
-    console.log(otpBody);
+   
 
     //   return response successfully
     res.status(200).json({
@@ -53,7 +53,7 @@ exports.sendOTP = async (req, res) => {
       otp
     });
   } catch (error) {
-    console.log(error);
+    
     res.status(500).json({
       success: false,
       message: error.message,
@@ -112,7 +112,7 @@ exports.signUp = async (req, res) => {
     const recentOtp = await OTP.find({ email })
       .sort({ createdAt: -1 })
       .limit(1);
-    console.log(recentOtp);
+   
 
     //validate otp
     if (recentOtp.length === 0) {
@@ -162,7 +162,7 @@ exports.signUp = async (req, res) => {
       user,
     });
   } catch (error) {
-    console.log(error);
+   
     return res.status(500).json({
       success: false,
       message: "usser cannot be registered, please try again later",
@@ -223,7 +223,7 @@ exports.login = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
+    
     return res.status(500).json({
       success: false,
       message: "Login failed , try again ",
@@ -271,7 +271,7 @@ exports.changePassword = async (req, res) => {
           `Password updated successfully for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
         )
       );
-      console.log("Email sent successfully:", emailResponse.response);
+   
     } catch (error) {
       // If there's an error sending the email, log the error and return a 500 (Internal Server Error) error
       console.error("Error occurred while sending email:", error);

@@ -22,7 +22,7 @@ export default function ChipInput({
 
   useEffect(() => {
     if (editCourse) {
-      // console.log(course)
+      // 
       setChips(course?.tags)
     }
     register(name, { required: true, validate: (value) => value.length > 0 })
@@ -31,7 +31,7 @@ export default function ChipInput({
 
   useEffect(() => {
     setValue(name, chips)
-    console.log("chips",chips)
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chips])
 

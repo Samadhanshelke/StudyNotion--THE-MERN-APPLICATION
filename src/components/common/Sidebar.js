@@ -2,7 +2,7 @@ import React from 'react'
 import { NavbarLinks } from "../../data/navbar-links"
 import { matchPath, useLocation,Link } from 'react-router-dom'
 import { BsChevronDown } from "react-icons/bs"
-import { AiOutlineMenu, AiOutlineShoppingCart,AiOutlineClose } from "react-icons/ai"
+import {  AiOutlineShoppingCart } from "react-icons/ai"
 
 import { useSelector } from "react-redux"
 import { ACCOUNT_TYPE } from "../../utils/constants"

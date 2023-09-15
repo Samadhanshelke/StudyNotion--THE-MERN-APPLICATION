@@ -44,7 +44,7 @@ exports.resetPasswordToken = async (req, res) => {
 
 
   } catch (error) {
-     console.log(error);
+     
      return res.status(500).jsoon({
         success:False,
         message:"something went wrong while reset "
@@ -99,7 +99,7 @@ exports.resetPassword = async(req,res)=>{
       })
 
     } catch (error) {
-        console.log(error);
+        
         res.status(500).json({
             success:false,
             message:"password reset failed"

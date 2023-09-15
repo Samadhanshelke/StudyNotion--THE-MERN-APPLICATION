@@ -4,10 +4,9 @@ exports.connect = ()=>{
     mongoose.connect(process.env.MONGO_URL,{
         useNewUrlParser:true,
         useUnifiedTopology:true
-    }).then(()=>{console.log("db connected successfully");})
+    }).then(()=>{})
     .catch((err)=>{
-        console.log("db connection failed")
-        console.log(err);
+        
         process.exit(1);
     })
 }

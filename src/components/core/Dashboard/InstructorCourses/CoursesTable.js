@@ -1,7 +1,6 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { Table, Tbody, Td, Th, Thead, Tr } from "react-super-responsive-table"
 
-import { setCourse, setEditCourse } from "../../../../slices/courseSlice"
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css"
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css"
 import { useState } from "react"
@@ -21,7 +20,7 @@ import ConfirmationModal from "../../../common/ConfirmationModal"
 // import { convertSecondsToDuration } from "../../../../../server/utils/secToDuration"
 
 export default function CoursesTable({ courses, setCourses,timeDuration,setTimeDuration }) {
-  const dispatch = useDispatch()
+
   const navigate = useNavigate()
   const { token } = useSelector((state) => state.auth)
   const [loading, setLoading] = useState(false)
@@ -41,8 +40,8 @@ export default function CoursesTable({ courses, setCourses,timeDuration,setTimeD
     setLoading(false)
   }
 
-  // console.log(index," ",course.courseContent.map(section=>section.subSection.map(item=>item.timeDuration)))
-  // console.log("All Course ", courses)
+  // 
+  // 
   // courses.map((course,index)=>{
   //    let totalDurationInSeconds = 0
   //  course.courseContent.forEach((content) => {
@@ -53,7 +52,7 @@ export default function CoursesTable({ courses, setCourses,timeDuration,setTimeD
   // })
 
   // const totalDuration = convertSecondsToDuration(totalDurationInSeconds)
-  // console.log(totalDurationInSeconds);
+  // 
 
   // })
 

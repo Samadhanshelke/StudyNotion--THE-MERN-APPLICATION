@@ -32,7 +32,7 @@ export default function InstructorChart({ courses }) {
       },
     ],
   }
-   console.log(chartDataStudents)
+   
   // Data for the chart displaying income information
   const chartIncomeData = {
     labels: courses.map((course) => course.courseName),

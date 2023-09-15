@@ -16,12 +16,12 @@ function ExploreMore() {
 
    const setMyCards = (value)=>{
      setCurrentTab(value);
-    //  console.log(currentTab)
+    //  
      const result = HomePageExplore.filter((course)=>course.tag === value)
-    //  console.log( result)
+    //  
      setCourses(result[0].courses)
      setCurrentCard(result[0].courses[0].heading);
-    //  console.log(currentCard)
+    //  
    }
   return (
     <div className='relative justify-center item-center w-full h-[1300px] sm:h-[700px] xl:h-auto'>

@@ -14,7 +14,7 @@ import { formatDate } from "../services/formatDate"
 import { fetchCourseDetails } from "../services/operations/courseDetailsAPI"
 import { buyCourse } from "../services/operations/studentFeaturesAPI"
 import GetAvgRating from "../utils/avgRating"
-import Error from "./Error"
+
 
 function CourseDetails() {
   const { user } = useSelector((state) => state.profile)
@@ -26,7 +26,7 @@ function CourseDetails() {
 
   // Getting courseId from url parameter
   const { courseId } = useParams()
-  // console.log(`course id: ${courseId}`)
+  // 
 
   // Declear a state to save the course details
   const [response, setResponse] = useState(null)
@@ -36,16 +36,16 @@ function CourseDetails() {
     ;(async () => {
       try {
         const res = await fetchCourseDetails(courseId)
-        // console.log("course details res: ", res)
+        // 
         setResponse(res?.data)
-        // console.log("ressponseponse",response[0].thumbnail)
+        // 
       } catch (error) {
-        console.log("Could not fetch Course Details")
+        
       }
     })()
   }, [courseId])
 
-  // console.log("response: ", response)
+  // 
 
   // Calculating Avg Review count
   const [avgReviewCount, setAvgReviewCount] = useState(0)
@@ -55,13 +55,13 @@ function CourseDetails() {
             setAvgReviewCount(count)
           }, [response])
 // 
-  // console.log("avgReviewCount: ", avgReviewCount)
+  // 
 
   // // Collapse all
   // const [collapse, setCollapse] = useState("")
   const [isActive, setIsActive] = useState(Array(0))
   const handleActive = (id) => {
-    // console.log("called", id)
+    // 
     setIsActive(
       !isActive.includes(id)
         ? isActive.concat([id])
@@ -89,7 +89,7 @@ function CourseDetails() {
 //   if (!response.success) {
 //     return <Error />
 //   }
-console.log(response);
+
   const {
     _id: course_id,
     courseName,
@@ -120,7 +120,7 @@ console.log(response);
   }
 
   if (paymentLoading) {
-    // console.log("payment loading")
+    // 
     return (
       <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
         <div className="spinner"></div>

@@ -16,7 +16,7 @@ exports.createRating = async (req, res) => {
       _id: courseId,
       studentsEnrolled: { $elemMatch: { $eq: userId } },
     });
-     console.log("in ratingAnd Review controller..,printing courseDetails",courseDetails)
+     
     if (!courseDetails) {
       return res.status(404).json({
         success: false,
@@ -49,7 +49,7 @@ exports.createRating = async (req, res) => {
                                    }
                                 },
                                 {new:true})
-    console.log(updatedCourseDetails)
+    
     //return review
     return res.status(200).json({
         success:true,
@@ -57,7 +57,7 @@ exports.createRating = async (req, res) => {
         ratingReview,
     })
   } catch (error) {
-    console.log(error)
+    
     res.status(500).json({
         success:false,
         message:error.message,

@@ -28,7 +28,7 @@ exports.createSubSection = async(req,res)=>{
             description:description,
             videoUrl:uploadDetails.secure_url,
         })
-        console.log("subSectionDetails",subSectionDetails)
+        
         //update Section with this sub section object Id
          const updatedSection = await Section.findByIdAndUpdate({_id:sectionId},
             {
@@ -37,7 +37,7 @@ exports.createSubSection = async(req,res)=>{
                 }
             },
             {new:true}).populate("subSection")
-            console.log("updatedSection",updatedSection)
+            
         //return response
         return res.status(200).json({
             success:true,
@@ -92,7 +92,7 @@ exports.updateSubSection = async (req, res) => {
         "subSection"
       )
   
-      console.log("updated section", updatedSection)
+      
   
       return res.json({
         success: true,

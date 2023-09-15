@@ -20,8 +20,7 @@ exports.createCourse = async(req,res)=>{
     const tags = JSON.parse(_tags)
     const instructions = JSON.parse(_instructions)
 
-    console.log("tag", tags)
-    console.log("instructions", instructions)
+    
 
         //validation
         if(!courseName || !courseDescription || !whatYouWillLearn || !price || !category || !thumbnail || !tags.length || !instructions.length){
@@ -39,7 +38,7 @@ exports.createCourse = async(req,res)=>{
         //check for instructor
         const userId = req.user.id;
         const instructorDetails = await User.findById(userId);
-        console.log("instructor details", instructorDetails);
+   
         if(!instructorDetails){
             res.status(404).json({
                 success:false,
@@ -73,7 +72,7 @@ exports.createCourse = async(req,res)=>{
             instructions,
         })
        
-        console.log("in course controller",newCourse)
+    
         // add the new course to the user schema of the instructor
         await User.findByIdAndUpdate(
             {_id:instructorDetails._id},
@@ -95,7 +94,7 @@ exports.createCourse = async(req,res)=>{
         },
         { new: true }
       )
-      console.log("HEREEEEEEEE", categoryDetails2)
+
 
         //return response
         return res.status(200).json({
@@ -104,7 +103,7 @@ exports.createCourse = async(req,res)=>{
              data:newCourse,
         });
     } catch (error) {
-        console.log(error);
+       
         return  res.status(500).json({
             success:false,
             message:"failed to create course ",
@@ -134,7 +133,7 @@ exports.getAllCourses = async(req,res)=>{
                 
            });                                      
     } catch (error) {
-        console.log(error);
+      
         return  res.status(500).json({
             success:false,
             message:"cannot fetch course data ",
@@ -221,7 +220,7 @@ exports.editCourse = async (req, res) => {
   
       // If Thumbnail Image is found, update it
       if (req.files) {
-        console.log("thumbnail update")
+        
         const thumbnail = req.files.thumbnailImage
         const thumbnailImage = await uploadImageToCloudinary(
           thumbnail,
@@ -305,7 +304,7 @@ exports.getFullCourseDetails = async (req, res) => {
         userId: userId,
       })
   
-      // console.log("courseProgressCount : ", courseProgressCount)
+  
   
       if (!courseDetails) {
         return res.status(400).json({
@@ -364,7 +363,7 @@ exports.getInstructorCourses = async (req, res) => {
           path: "subSection",
         },
       })
-      //  console.log("GET INSTRUCTOR COURSES API RESPINSE",instructorCourses)
+  
       const totalTimeDuration =  instructorCourses.map((courses)=>{
            
            let totalDurationInSeconds = 0
@@ -378,7 +377,7 @@ exports.getInstructorCourses = async (req, res) => {
           const totalDuration = convertSecondsToDuration(totalDurationInSeconds)
           return totalDuration
         })
-        console.log("totalTimeDuration",totalTimeDuration)
+        
 
       // Return the instructor's courses
       res.status(200).json({

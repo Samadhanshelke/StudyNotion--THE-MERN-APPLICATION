@@ -22,7 +22,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
     _id: courseId,
   } = course
 
-console.log("course",course)
+
 
   const handleShare = () => {
     copy(window.location.href)
@@ -48,7 +48,7 @@ console.log("course",course)
     })
   }
 
-  // console.log("Student already enrolled ", course?.studentsEnrolled, user?._id)
+  // 
 
   return (
     <>

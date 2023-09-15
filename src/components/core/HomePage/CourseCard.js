@@ -2,8 +2,8 @@ import React from 'react'
 import {BsPeopleFill} from 'react-icons/bs'
 import {AiOutlineCluster} from 'react-icons/ai'
 function CourseCard({cardData,currentCard,setCurrentCard}) {
-  // console.log(currentCard);
-  // console.log(cardData.heading);
+  // 
+  // 
   function getCurrentCard(){
     setCurrentCard(cardData.heading)
   }

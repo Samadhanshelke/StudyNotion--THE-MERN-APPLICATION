@@ -48,7 +48,7 @@ exports.updateProfile = async(req,res)=>{
       updatedUserDetails,
     })
   } catch (error) {
-    console.log(error)
+    
     return res.status(500).json({
       success: false,
       error: error.message,
@@ -130,7 +130,7 @@ exports.updateDisplayPicture = async (req, res) => {
         1000,
         1000
       )
-      console.log(image)
+      
       const updatedProfile = await User.findByIdAndUpdate(
         { _id: userId },
         { image: image.secure_url },
@@ -204,7 +204,7 @@ exports.updateDisplayPicture = async (req, res) => {
         })
       }
 
-      console.log("enrolled courses",userDetails.courses)
+      
       return res.status(200).json({
         success: true,
         data: userDetails.courses,

@@ -29,12 +29,12 @@ function ReviewSlider() {
       )
       if (data?.success) {
         setReviews(data?.data)
-        console.log("reviews",reviews)
+        
       }
     })()
   }, [])
 
-  // console.log(reviews)
+  // 
 
   return (
     <div className="text-white w-11/12">

@@ -11,7 +11,7 @@ export default function useOnClickOutside(ref, handler) {
       }
       // Otherwise, call the provided handler function
       handler(event);
-      console.log("ref",ref)
+      
     };
 
     // Add event listeners for mousedown and touchstart events on the document
