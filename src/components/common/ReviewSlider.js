@@ -52,9 +52,10 @@ function ReviewSlider() {
           loop={true}
           freeMode={true}
           autoplay={{
-            delay: 2500,
+            delay: 1,
             disableOnInteraction: false,
           }}
+          speed={1000}
           modules={[FreeMode, Pagination, Autoplay]}
           className="w-full mySwiper"
         >
