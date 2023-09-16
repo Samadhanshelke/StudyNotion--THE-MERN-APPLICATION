@@ -110,7 +110,7 @@ function Sidebar({loading,subLinks,openNavbar,setOpenNavbar,handleNavbarOpen}) {
               </button>
             </Link>
           )}
-          {token !== null && <ProfileDropdown  />}
+          {token !== null && <ProfileDropdown  handleNavbarOpen={handleNavbarOpen}/>}
         </div>
          </div>
     </div>
