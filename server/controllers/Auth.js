@@ -176,7 +176,6 @@ exports.login = async (req, res) => {
   try {
     //get data from req body
     const { email, password } = req.body;
-
     //validation
     if (!email || !password) {
       res.status(403).json({
@@ -193,13 +192,16 @@ exports.login = async (req, res) => {
       });
     }
     //generate jwt,after password matching
+    const result =await bcrypt.compare(password,user.password)
+    console.log("email",result,req.body,user)
     if (await bcrypt.compare(password, user.password)) {
       const payload = {
         email: user.email,
         id: user._id,
         accountType: user.accountType,
       };
-      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      console.log("payload",payload)
+      const token = jwt.sign(payload, process.env.JWT_SECRET,{
         expiresIn: "24h",
       });
       user.token = token;
@@ -217,6 +219,7 @@ exports.login = async (req, res) => {
         message: "Logged in successfully",
       });
     } else {
+      console.log('mgg gg ghmh hhhhhhhhhhhhhhhhhhhhhh')
       return res.status(401).json({
         success: false,
         message: "password is incorrect",
@@ -231,7 +234,7 @@ exports.login = async (req, res) => {
   }
 };
 
-//changePassword
+//c
 
 exports.changePassword = async (req, res) => {
   try {

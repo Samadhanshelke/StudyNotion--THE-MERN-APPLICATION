@@ -64,9 +64,6 @@ exports.isStudent = async(req,res,next)=>{
 exports.isInstructor = async(req,res,next)=>{
     try {
 		const userDetails = await User.findOne({ email: req.user.email });
-		
-
-		
 
 		if (userDetails.accountType !== "Instructor") {
 			return res.status(401).json({

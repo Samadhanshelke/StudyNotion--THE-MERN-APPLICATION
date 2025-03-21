@@ -74,7 +74,7 @@ export function signUp(
         throw new Error(response.data.message)
       }
       toast.success("Signup Successful")
-      navigate("/login")
+      navigate("/login") 
     } catch (error) {
       
       toast.error("Signup Failed")
@@ -102,6 +102,7 @@ export function login(email, password, navigate) {
       }
 
       toast.success("Login Successful")
+      console.log(response)
       dispatch(setToken(response.data.token))
       const userImage = response?.data?.user?.image
         ? response.data.user.image

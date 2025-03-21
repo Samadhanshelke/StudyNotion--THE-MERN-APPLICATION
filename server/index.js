@@ -47,15 +47,19 @@ app.use("/api/v1/payment",paymentRoutes)
 
 //default routes
 
+// app.get("/",(req,res)=>{
+//      return res.json({
+//         success:true,
+//         message:"Your server is up and running"
+//      })
+// });
 app.get("/",(req,res)=>{
-     return res.json({
-        success:true,
-        message:"Your server is up and running"
-     })
+     return res.send("hello")
 });
+
 
 //activate the server
 
 app.listen(PORT,()=>{
-    
+    console.log('server is running on port',PORT)
 })
